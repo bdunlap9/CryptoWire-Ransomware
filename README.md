@@ -41,6 +41,6 @@ You still have to hard code some information (Source Code):
 This ransomware was originally from AutoIt https://github.com/brucecio9999/CryptoWire-Advanced-AutoIt-ransomware-Project
 
 # Images of my custom Control Panel
-![alt tag](https://imgur.com/a/7xtfx "Login Page")
-![alt tag](https://imgur.com/a/f978p "Infected Computers Page")
-![alt tag](https://imgur.com/a/hOom1 "Configuration Page")
+![IMG](https://imgur.com/a/7xtfx "Login Page")
+![IMG](https://imgur.com/a/f978p "Infected Computers Page")
+![IMG](https://imgur.com/a/hOom1 "Configuration Page")
