@@ -30,8 +30,8 @@ I modified it to turn it into a truly functioning ransomware ready to be execute
 I also went ahead and created a control panel to store and view the Decryption Keys, Computer Names, And also included what version it is.
 
 You still have to hard code some information (Source Code):
-  1. Line 244 - Fill out your <Your BTC address>
-  2. Line 248 - Fill out your <Your BTC address>
+  1. Line 244 - Fill out your (Your BTC address)
+  2. Line 248 - Fill out your (Your BTC address)
   
  You still have to hard code some information (C&C Panel):
   1. info.php  (Line 36) - $server = mysqli_connect("<hostname>" "<username>", "<password>", "<database>");
