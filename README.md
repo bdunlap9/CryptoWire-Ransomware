@@ -4,8 +4,6 @@ CryptoWire - A advanced prof of concept ransomware project without a panel, to p
 
 Compile : Requires autoit version: v3.3.14.2
 
-Open source: http://ge.tt/1uQXLoa2 (Origanal Code: Unfinished and not ready to go)
-
 Encryption algoritm is AES 256.
 
 The ransomware will encrypt all files stored on: Network drives, Network Shares, Usb Drives/sticks, Externals Disks, Internal Disks, Games (Steam), Onedrive, Dropbox, Google Drive (any cloud service that is running on the machine).
