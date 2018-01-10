@@ -38,6 +38,9 @@ You still have to hard code some information (Source Code):
   1. info.php  (Line 36) - $server = mysqli_connect("<hostname>" "<username>", "<password>", "<database>");
   2. include/config.php (Line 2, Line 3, Line 4, Line 5) - Fill out <db server>, <db username>, <db password>, <db database>
   
+  Also the login infor for the control panel is by default:
+    Username = admin
+    Password = admin123
 
 This ransomware was originally from AutoIt https://github.com/brucecio9999/CryptoWire-Advanced-AutoIt-ransomware-Project
 
