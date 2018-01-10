@@ -32,6 +32,7 @@ I also went ahead and created a control panel to store and view the Decryption K
 You still have to hard code some information (Source Code):
   1. Line 244 - Fill out your (Your BTC address)
   2. Line 248 - Fill out your (Your BTC address)
+  3. Line 710 - Fill out <url you hosted the C&C on>/bot/log.php
   
  You still have to hard code some information (C&C Panel):
   1. info.php  (Line 36) - $server = mysqli_connect("<hostname>" "<username>", "<password>", "<database>");
